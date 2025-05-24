@@ -1,1 +1,1 @@
-# scrum-ai-generator
+# Scrum AI Generator
