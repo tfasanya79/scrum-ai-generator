@@ -1,14 +1,12 @@
-from pydantic import BaseModel
-from typing import List
+from pydantic import BaseModel, Field
 
+class ProjectRequest(BaseModel):
+    projectName: str = Field(..., alias="projectName")
+    projectGoal: str = Field(..., alias="projectGoal")
+    projectDescription: str = Field(..., alias="projectDescription")
 
-class ProjectInput(BaseModel):
-    name: str
-    goal: str
-    description: str
+    class Config:
+        allow_population_by_field_name = True
 
-
-class ProjectOutput(BaseModel):
-    epics: List[str]
-    sprints: List[str]
-    roles: List[str]
+class ProjectResponse(BaseModel):
+    design: str
